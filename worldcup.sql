@@ -2,8 +2,10 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 12.22 (Ubuntu 12.22-0ubuntu0.20.04.4)
--- Dumped by pg_dump version 12.22 (Ubuntu 12.22-0ubuntu0.20.04.4)
+\restrict twod57ZUGruyfiWZS384TdvbIb1CwSdfU8gcSPvhSLxz8PgWGSJsJagrsZ9bxqi
+
+-- Dumped from database version 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)
+-- Dumped by pg_dump version 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -21,12 +23,14 @@ DROP DATABASE worldcup;
 -- Name: worldcup; Type: DATABASE; Schema: -; Owner: freecodecamp
 --
 
-CREATE DATABASE worldcup WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C.UTF-8' LC_CTYPE = 'C.UTF-8';
+CREATE DATABASE worldcup WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'C.UTF-8';
 
 
 ALTER DATABASE worldcup OWNER TO freecodecamp;
 
+\unrestrict twod57ZUGruyfiWZS384TdvbIb1CwSdfU8gcSPvhSLxz8PgWGSJsJagrsZ9bxqi
 \connect worldcup
+\restrict twod57ZUGruyfiWZS384TdvbIb1CwSdfU8gcSPvhSLxz8PgWGSJsJagrsZ9bxqi
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -73,7 +77,7 @@ CREATE SEQUENCE public.games_game_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.games_game_id_seq OWNER TO freecodecamp;
+ALTER SEQUENCE public.games_game_id_seq OWNER TO freecodecamp;
 
 --
 -- Name: games_game_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
@@ -107,7 +111,7 @@ CREATE SEQUENCE public.teams_team_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.teams_team_id_seq OWNER TO freecodecamp;
+ALTER SEQUENCE public.teams_team_id_seq OWNER TO freecodecamp;
 
 --
 -- Name: teams_team_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
@@ -202,7 +206,7 @@ INSERT INTO public.teams VALUES (24, 'United States');
 -- Name: games_game_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.games_game_id_seq', 32, true);
+SELECT pg_catalog.setval('public.games_game_id_seq', 64, true);
 
 
 --
@@ -255,4 +259,6 @@ ALTER TABLE ONLY public.games
 --
 -- PostgreSQL database dump complete
 --
+
+\unrestrict twod57ZUGruyfiWZS384TdvbIb1CwSdfU8gcSPvhSLxz8PgWGSJsJagrsZ9bxqi
 
