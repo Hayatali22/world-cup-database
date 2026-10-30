@@ -1,6 +1,11 @@
-#!/bin/bash
+if [[ $1 == "test" ]]
+then
+  PSQL="psql --username=postgres --dbname=worldcuptest --no-align --tuples-only -c"
+else
+  PSQL="psql --username=freecodecamp --dbname=worldcup --no-align --tuples-only -c"
+fi
 
-PSQL="psql --username=freecodecamp --dbname=worldcup -t --no-align -c"
+
 
 echo -e "\nList of unique winning team names in the whole data set:"
 echo "$($PSQL "SELECT DISTINCT name FROM teams INNER JOIN games ON teams.team_id = games.winner_id ORDER BY name")"

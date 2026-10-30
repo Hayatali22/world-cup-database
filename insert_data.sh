@@ -1,7 +1,12 @@
 
 #!/bin/bash
 
-PSQL="psql --username=freecodecamp --dbname=worldcup -t --no-align -c"
+if [[ $1 == "test" ]]
+then
+  PSQL="psql --username=postgres --dbname=worldcuptest -t --no-align -c"
+else
+  PSQL="psql --username=freecodecamp --dbname=worldcup -t --no-align -c"
+fi
 
 # Insert unique teams
 cat games.csv | tail -n +2 | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS
